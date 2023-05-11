@@ -3,9 +3,10 @@ package us.thezircon.play.silkyspawnerslite.utils;
 import org.bukkit.configuration.file.YamlConfiguration;
 import us.thezircon.play.silkyspawnerslite.SilkySpawnersLITE;
 
-import java.io.*;
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -28,7 +29,7 @@ public class UpdateConfigs {
         for (String key : conf.getKeys(true)) {
             if (!plugin.getConfig().getKeys(true).contains(key)) {
                 File oldConf = new File(plugin.getDataFolder(), "config.yml");
-                File newConf = new File(plugin.getDataFolder(), "outdated-config-" + LocalDate.now() + " (as of "+VersionChk.getVersion("SilkySpawnersLITE")+")"+".yml");
+                File newConf = new File(plugin.getDataFolder(), "outdated-config-" + LocalDate.now() + " (as of "+ plugin.getDescription().getVersion() +")"+".yml");
 
                 oldConf.renameTo(newConf);
                 plugin.getConfig().options().copyDefaults();
