@@ -5,6 +5,7 @@ prefix: SilkyLITE
 authors: [BUTTERFIELD8]
 softdepend: [Vault]
 api-version: 1.13
+folia-supported: true
 description: A lightweight version of my plugin SilkSpawners without upgradeable spawners
 website: https://discord.gg/7xfSC5p
 commands:
