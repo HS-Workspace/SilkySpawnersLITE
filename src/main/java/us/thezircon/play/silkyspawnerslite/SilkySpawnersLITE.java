@@ -2,13 +2,11 @@ package us.thezircon.play.silkyspawnerslite;
 
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 import us.thezircon.play.silkyspawnerslite.commands.CheckSpawner;
 import us.thezircon.play.silkyspawnerslite.commands.SilkySpawner.Silky;
 import us.thezircon.play.silkyspawnerslite.events.breakSpawner;
@@ -17,13 +15,10 @@ import us.thezircon.play.silkyspawnerslite.events.playerJoin;
 import us.thezircon.play.silkyspawnerslite.events.renameSpawner;
 import us.thezircon.play.silkyspawnerslite.nms.*;
 import us.thezircon.play.silkyspawnerslite.utils.HexFormat;
-import us.thezircon.play.silkyspawnerslite.utils.Metrics;
 import us.thezircon.play.silkyspawnerslite.utils.UpdateConfigs;
-import us.thezircon.play.silkyspawnerslite.utils.VersionChk;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
 public final class SilkySpawnersLITE extends JavaPlugin {
@@ -70,23 +65,23 @@ public final class SilkySpawnersLITE extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new renameSpawner(), this);
         getServer().getPluginManager().registerEvents(new playerJoin(), this);
 
-        //bStats
-        Metrics metrics = new Metrics(this, 6579);
-
-        //Version Check
-        String pluginName = this.getName();
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                try {
-                    VersionChk.checkVersion(pluginName, 76103);
-                } catch (UnknownHostException e) {
-                    VersionChk.noConnection();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.run();
+//        //bStats
+//        Metrics metrics = new Metrics(this, 6579);
+//
+//        //Version Check
+//        String pluginName = this.getName();
+//        new BukkitRunnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    VersionChk.checkVersion(pluginName, 76103);
+//                } catch (UnknownHostException e) {
+//                    VersionChk.noConnection();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }.run();
     }
 
     @Override
